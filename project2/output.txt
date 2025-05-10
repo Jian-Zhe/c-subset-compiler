@@ -1,0 +1,72 @@
+type: Char | Int | Float | Double | Void
+declarator: Identifier
+declaration: 'const'? type '*'? declarator initialization? ';'
+statement: declaration
+simpleExpression: Identifier
+postfixExpression: simpleExpression ('++' | '--' | '.' Identifier | '[' expression ']')*
+prefixExpression: ('++' | '--')? postfixExpression
+assignmentOperator: '*=' | '/=' | '%=' | '+=' | '-=' | '<<=' | '>>=' | '&=' | '^=' | '|=' | '='
+simpleExpression: Constant
+postfixExpression: simpleExpression ('++' | '--' | '.' Identifier | '[' expression ']')*
+prefixExpression: ('++' | '--')? postfixExpression
+mulicativeExpression: prefixExpression (('*' | '/' | '%') prefixExpression)*
+simpleExpression: Constant
+postfixExpression: simpleExpression ('++' | '--' | '.' Identifier | '[' expression ']')*
+prefixExpression: ('++' | '--')? postfixExpression
+simpleExpression: Constant
+postfixExpression: simpleExpression ('++' | '--' | '.' Identifier | '[' expression ']')*
+prefixExpression: ('++' | '--')? postfixExpression
+mulicativeExpression: prefixExpression (('*' | '/' | '%') prefixExpression)*
+simpleExpression: Constant
+postfixExpression: simpleExpression ('++' | '--' | '.' Identifier | '[' expression ']')*
+prefixExpression: ('++' | '--')? postfixExpression
+mulicativeExpression: prefixExpression (('*' | '/' | '%') prefixExpression)*
+additiveExpression: mulicativeExpression (('+' | '-') mulicativeExpression)*
+shiftExpression: additiveExpression (('<<' | '>>') additiveExpression)*
+compareExpression: shiftExpression (('<' | '>' | '<=' | '>=') shiftExpression)*
+equalityExpression: compareExpression (('==' | '!=') compareExpression)*
+andExpression: equalityExpression ('&' equalityExpression)*
+exclusiveOrExpression: andExpression ('^' andExpression)*
+inclusiveOrExpression: exclusiveOrExpression ('|' exclusiveOrExpression)*
+logicalAndExpression: inclusiveOrExpression ('&&' inclusiveOrExpression)*
+logicalOrExpression: logicalAndExpression ('||' logicalAndExpression)*
+assignmentExpression: logicalOrExpression
+expression: assignmentExpression (',' assignmentExpression)*
+simpleExpression: '(' expression ')'
+postfixExpression: simpleExpression ('++' | '--' | '.' Identifier | '[' expression ']')*
+prefixExpression: ('++' | '--')? postfixExpression
+mulicativeExpression: prefixExpression (('*' | '/' | '%') prefixExpression)*
+additiveExpression: mulicativeExpression (('+' | '-') mulicativeExpression)*
+shiftExpression: additiveExpression (('<<' | '>>') additiveExpression)*
+compareExpression: shiftExpression (('<' | '>' | '<=' | '>=') shiftExpression)*
+equalityExpression: compareExpression (('==' | '!=') compareExpression)*
+andExpression: equalityExpression ('&' equalityExpression)*
+exclusiveOrExpression: andExpression ('^' andExpression)*
+inclusiveOrExpression: exclusiveOrExpression ('|' exclusiveOrExpression)*
+logicalAndExpression: inclusiveOrExpression ('&&' inclusiveOrExpression)*
+logicalOrExpression: logicalAndExpression ('||' logicalAndExpression)*
+assignmentExpression: prefixExpression assignmentOperator logicalOrExpression
+expression: assignmentExpression (',' assignmentExpression)*
+statement: expression ';'
+simpleExpression: Identifier
+postfixExpression: simpleExpression ('++' | '--' | '.' Identifier | '[' expression ']')*
+prefixExpression: ('++' | '--')? postfixExpression
+mulicativeExpression: prefixExpression (('*' | '/' | '%') prefixExpression)*
+additiveExpression: mulicativeExpression (('+' | '-') mulicativeExpression)*
+shiftExpression: additiveExpression (('<<' | '>>') additiveExpression)*
+compareExpression: shiftExpression (('<' | '>' | '<=' | '>=') shiftExpression)*
+equalityExpression: compareExpression (('==' | '!=') compareExpression)*
+andExpression: equalityExpression ('&' equalityExpression)*
+exclusiveOrExpression: andExpression ('^' andExpression)*
+inclusiveOrExpression: exclusiveOrExpression ('|' exclusiveOrExpression)*
+logicalAndExpression: inclusiveOrExpression ('&&' inclusiveOrExpression)*
+logicalOrExpression: logicalAndExpression ('||' logicalAndExpression)*
+assignmentExpression: logicalOrExpression
+expression: assignmentExpression (',' assignmentExpression)*
+parameter: ',' expression
+printf: 'printf' '(' StringLiteral parameter* ')'
+functionCall: printf
+statement: functionCall ';'
+block: '{' statement* '}'
+functionDefinition: type Identifier '(' parameterList? ')' block
+translationUnit: (declaration | functionDefinition | ';')* EOF

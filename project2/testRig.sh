@@ -1,0 +1,1 @@
+java -cp ../antlr4-4.13.2-complete.jar:. org.antlr.v4.gui.TestRig myparser translationUnit -gui test/test.c

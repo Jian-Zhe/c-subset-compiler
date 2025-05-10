@@ -1,0 +1,50 @@
+1. keyword (關鍵字)
+
+2. data type (所支援的資料型態)
+int, float, double, char, short, void, const, pointer, struct, union
+不支援bit field
+
+3. 註解方式
+   //
+   /* */
+   
+4. program execution
+   程式可包含多個函式
+
+5. program control flow 
+   Ex: For-loop, If-then-else, While, continue, (Do-While, Switch-Case-Default, break)
+   
+6. program statement
+   Ex: 支援 +, -, *的數學運算、支援哪些邏輯運算、支援哪些比較運算
+   +, -, *, /, %
+   >, <, ==, >=, <=, !=
+   &, |, !, ^, ~, >>, <<
+   +=, -=, *=, /=, %=, &=, |=, ^=, >>=, <<=
+   &&, ||
+   ++, --
+   
+7. literal
+"literal", 'L'
+123
+123.456
+1e9
+-3
+.456
+123.
+123.456e9
+0b01001
+不支援以0開頭的常數、八進位、十六進位
+
+8. std function
+printf, scanf, malloc, free
+Q: printf(" ... "); => Take the " ... " as a literal 
+
+9. ignore Directive
+#include
+
+10. 其他標點符號
+,
+.
+:
+;
+.
